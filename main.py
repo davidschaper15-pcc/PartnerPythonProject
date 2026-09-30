@@ -14,10 +14,12 @@ from datetime import date
 def main():
     name = get_name()
     batch_size = get_batch_size()
+    recipe = get_recipe()
     print()
     print_the_date()
     print_name(name)
-    print_recipe(batch_size)
+    print_recipe(batch_size, recipe)
+    print("Enjoy your recipe, " + name + "!")
 
 
 def get_name():
@@ -30,6 +32,13 @@ def get_batch_size():
     return batch_size
 
 
+# Added function would give the user a choice of cookies or brownies
+# with different recipe amounts
+def get_recipe():
+    recipe = input("Would you like to make cookies or brownies? ").strip().title()
+    return recipe
+
+
 def print_name(name):
     print("Name: " + name + "'s converted recipe")
 
@@ -38,7 +47,7 @@ def print_the_date():
     print("Date:", date.today().strftime("%B %d, %Y"))
 
 
-def print_recipe(batch_size):
+def print_recipe(batch_size, recipe):
     flour = 1
     sugar = 0.5
     butter = 0.5
@@ -46,6 +55,26 @@ def print_recipe(batch_size):
     vanilla = 0.5
     powder = 0.5
     salt = 1
+
+# Gives the brownies a new starting calculation.
+
+    if recipe == "Cookies":
+        flour = 1
+        sugar = 0.5
+        butter = 0.5
+        eggs = 1
+        vanilla = 0.5
+        powder = 0.5
+        salt = 1
+
+    elif recipe == "Brownies":
+        flour = 1.5
+        sugar = 1
+        butter = 0.75
+        eggs = 2
+        vanilla = 1
+        powder = 0.5
+        salt = 1
 
     flour *= batch_size
     sugar *= batch_size
@@ -67,7 +96,7 @@ def print_recipe(batch_size):
     )
 
     print(
-        f"{butter:.2f} cup(s) butter (softend)"
+        f"{butter:.2f} cup(s) butter (softened)"
         .title().replace("(S)", "(s)")
     )
     print(
@@ -87,10 +116,17 @@ def print_recipe(batch_size):
         .format(round(salt)).title().replace("(Es)", "(es)")
     )
     print("------------------------------------------------------")
-    print(
+
+# User chooses between two options
+    if recipe == "Cookies":
+        print(
         f"Here is the converted recipe for {float(batch_size):.10g} batches"
         f"\n for a total of {float(batch_size * 12):.0f} cookies."
     )
+    elif recipe == "Brownies":
+        print(
+        f"Here is the converted recipe for {float(batch_size):.10g} batches"
+        f"\nfor a total of {float(batch_size * 16):.0f} brownies.")
 
 
 if __name__ == "__main__":
