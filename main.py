@@ -14,6 +14,7 @@ from datetime import date
 def main():
     name = get_name()
     batch_size = get_batch_size()
+    print()
     print_the_date()
     print_name(name)
     print_recipe(batch_size)
@@ -54,14 +55,42 @@ def print_recipe(batch_size):
     powder *= batch_size
     salt *= batch_size
 
-    print(f"{flour:.2f} cup(s) all-purpose flour".title().replace("(S)", "(s)"))
-    print(f"{sugar:.2f} cup(s) sugar".title().replace("(S)", "(s)"))
-    print(f"{butter:.2f} cup(s) butter (softend)".title().replace("(S)", "(s)"))
-    print("{}    egg(s)".format(round(eggs)).title().replace("(S)", "(s)"))
-    print(f"{vanilla:.2f} teaspoon(s) vanilla extract".title().replace("(S)", "(s)"))
-    print(f"{powder:.2f} teaspoon(s) baking powder".title().replace("(S)", "(s)"))
-    print("{}    pinch(es) of salt".format(round(salt)).title().replace("(Es)", "(es)"))
-    print("\n")
+    print("------------------------------------------------------")
+    print(
+        f"{flour:.2f} cup(s) all-purpose flour"
+        .title().replace("(S)", "(s)")
+    )
+
+    print(
+        f"{sugar:.2f} cup(s) sugar"
+        .title().replace("(S)", "(s)")
+    )
+
+    print(
+        f"{butter:.2f} cup(s) butter (softend)"
+        .title().replace("(S)", "(s)")
+    )
+    print(
+        "{}    egg(s)"
+        .format(round(eggs)).title().replace("(S)", "(s)")
+    )
+    print(
+        f"{vanilla:.2f} teaspoon(s) vanilla extract"
+        .title().replace("(S)", "(s)")
+    )
+    print(
+        f"{powder:.2f} teaspoon(s) baking powder"
+        .title().replace("(S)", "(s)")
+    )
+    print(
+        "{}    pinch(es) of salt"
+        .format(round(salt)).title().replace("(Es)", "(es)")
+    )
+    print("------------------------------------------------------")
+    print(
+        f"Here is the converted recipe for {float(batch_size):.10g} batches"
+        f"\n for a total of {float(batch_size * 12):.0f} cookies."
+    )
 
 
 if __name__ == "__main__":
