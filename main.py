@@ -15,6 +15,7 @@ from datetime import date
 
 
 def main():
+    print_welcome_message()
     name = get_name()
     batch_size = get_batch_size()
     recipe = get_recipe()
@@ -30,14 +31,17 @@ def main():
     print_recipe(batch_size, recipe, topping)
     print("Enjoy your recipe, " + name + "!")
 
+def print_welcome_message():
+    print("Welcome to the recipe converter!")
+    print("let's get started.")
 
 def get_name():
-    name = input("Type your name: ").strip().title()
+    name = input("Enter your name: ").strip().title()
     return name
 
 
 def get_batch_size():
-    batch_size = float(input("Type the number of batches you want: "))
+    batch_size = float(input("How many batches do you want: "))
     return batch_size
 
 
@@ -129,8 +133,7 @@ def print_recipe(batch_size, recipe, topping):
         .title().replace("(S)", "(s)")
     )
     print(
-        "{:6d} pinch(es) of salt"
-        .format(round(salt)).title().replace("(Es)", "(es)")
+        "{:6d} Pinch(es) of Salt".format(round(salt))
     )
     print("-" * 35)
 
