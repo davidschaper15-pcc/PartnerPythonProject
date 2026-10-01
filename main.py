@@ -24,7 +24,7 @@ def main():
     else:
         topping = "None"
 
-    print()                             # There is an empty print, wondering if this was a typo
+    print()    # extra spacing for start of output section
     print_the_date()
     print_name(name)
     print_recipe(batch_size, recipe, topping)
@@ -101,38 +101,38 @@ def print_recipe(batch_size, recipe, topping):
     powder *= batch_size
     salt *= batch_size
 
-    print("------------------------------------------------------")
+    # printing the table of ingredients
+    print(f"{'Converted Recipe Ingredients':^35}")
+    print("-" * 35)
     print(
-        f"{flour:.2f} cup(s) all-purpose flour"
-        .title().replace("(S)", "(s)")
-    )
-
-    print(
-        f"{sugar:.2f} cup(s) sugar"
-        .title().replace("(S)", "(s)")
-    )
-
-    print(
-        f"{butter:.2f} cup(s) butter (softened)"
+        f"{flour:6.2f} cup(s) all-purpose flour"
         .title().replace("(S)", "(s)")
     )
     print(
-        "{}    egg(s)"
+        f"{sugar:6.2f} cup(s) sugar"
+        .title().replace("(S)", "(s)")
+    )
+    print(
+        f"{butter:6.2f} cup(s) butter (softened)"
+        .title().replace("(S)", "(s)")
+    )
+    print(
+        "{:6d} egg(s)"
         .format(round(eggs)).title().replace("(S)", "(s)")
     )
     print(
-        f"{vanilla:.2f} teaspoon(s) vanilla extract"
+        f"{vanilla:6.2f} teaspoon(s) vanilla extract"
         .title().replace("(S)", "(s)")
     )
     print(
-        f"{powder:.2f} teaspoon(s) baking powder"
+        f"{powder:6.2f} teaspoon(s) baking powder"
         .title().replace("(S)", "(s)")
     )
     print(
-        "{}    pinch(es) of salt"
+        "{:6d} pinch(es) of salt"
         .format(round(salt)).title().replace("(Es)", "(es)")
     )
-    print("------------------------------------------------------")
+    print("-" * 35)
 
 # User chooses between two options
     if recipe == "Cookies":
@@ -144,7 +144,10 @@ def print_recipe(batch_size, recipe, topping):
         print(
         f"Here is the converted recipe for {float(batch_size):.10g} batches"
         f"\nfor a total of {float(batch_size * 16):.0f} brownies.")
-
+    else: #if nothing is chosen assume cookies
+        print(
+        f"Here is the converted recipe for {float(batch_size):.10g} batches"
+        f"\nfor a total of {float(batch_size * 12):.0f} cookies.")
 
     # This function will print out a statement on
     # what the user chose for toppings
