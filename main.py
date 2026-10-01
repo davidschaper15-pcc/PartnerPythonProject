@@ -31,6 +31,7 @@ def main():
     print_recipe(batch_size, recipe, topping)
     print("Enjoy your recipe, " + name + "!")
 
+
 def print_welcome_message():
     print("Welcome to the recipe converter!")
     print("let's get started.")
